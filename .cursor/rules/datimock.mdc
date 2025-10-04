@@ -1,0 +1,5 @@
+---
+description: non utilizzare mai dati mock
+globs:
+alwaysApply: true
+---

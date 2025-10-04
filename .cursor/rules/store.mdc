@@ -1,0 +1,5 @@
+---
+description: in angular per le opzioni e le impostazioni utenti ed account devi usare gli store di ngrx
+globs:
+alwaysApply: true
+---

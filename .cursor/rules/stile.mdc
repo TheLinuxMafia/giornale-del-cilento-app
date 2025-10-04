@@ -1,0 +1,5 @@
+---
+description: lo stile dell'applicazione deve utilizzare il material design
+globs:
+alwaysApply: true
+---

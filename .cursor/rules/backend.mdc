@@ -1,0 +1,5 @@
+---
+description: il backend di questa applicazione è in Laravel
+globs:
+alwaysApply: true
+---

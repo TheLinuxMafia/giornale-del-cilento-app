@@ -1,0 +1,5 @@
+---
+description: il frontend di questa applicazione è in Angular
+globs:
+alwaysApply: true
+---

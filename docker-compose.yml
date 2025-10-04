@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: giornale-backend
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./backend:/var/www
+      - ./backend/storage:/var/www/storage
+    ports:
+      - "8000:8000"
+    networks:
+      - giornale-network
+    depends_on:
+      - db
+      - redis
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: giornale-frontend
+    restart: unless-stopped
+    ports:
+      - "4200:80"
+    networks:
+      - giornale-network
+
+  db:
+    image: mysql:8.0
+    container_name: giornale-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: giornale_cilento
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_USER: giornale
+      MYSQL_PASSWORD: giornalepassword
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - giornale-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: giornale-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    networks:
+      - giornale-network
+
+volumes:
+  db_data:
+
+networks:
+  giornale-network:
+    driver: bridge

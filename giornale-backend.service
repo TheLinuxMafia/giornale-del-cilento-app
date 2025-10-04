@@ -1,0 +1,14 @@
+[Unit]
+Description=Giornale del Cilento Backend
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/run/media/giacomo/A07C286D7C284100/GiornaleDelCilento/App/backend
+ExecStart=/usr/bin/php artisan serve --host=0.0.0.0 --port=8000
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

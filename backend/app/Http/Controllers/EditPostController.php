@@ -200,15 +200,6 @@ class EditPostController extends Controller
             ], 401);
         }
 
-        // Check if WordPress publishing user (ID 2) is configured
-        $publishUser = User::find(2);
-        if (!$publishUser || !$publishUser->wordpress_token) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Non puoi pubblicare l\'articolo perchè non sei autenticato con Wordpress'
-            ], 403);
-        }
-
         return $user;
     }
 }

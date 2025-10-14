@@ -113,8 +113,8 @@ Route::get('/categories/sync/status', [CategoryController::class, 'syncStatus'])
     // WordPress Integration
     Route::get('/wordpress/categories', [WordPressController::class, 'getCategories']);
     Route::get('/wordpress/tags', [WordPressController::class, 'getTags']);
-    // Legacy publish endpoint redirected to EditPostController (handles both new and edit)
-    Route::post('/wordpress/publish', [EditPostController::class, 'editPost']);
+    // Legacy publish endpoint redirected to new WordPress PostController
+    Route::post('/wordpress/publish', [\App\Http\Controllers\WordPress\PostController::class, 'publishArticle']);
     Route::post('/wordpress/sync-user', [WordPressController::class, 'syncUser']);
     
     // Broadcasting

@@ -1,0 +1,5 @@
+---
+description: per fatturazione elettronica fare riferimento alla documentazione: https://www.fatturapa.gov.it/it/norme-e-regole/documentazione-fattura-elettronica/formato-fatturapa/
+globs:
+alwaysApply: true
+---
